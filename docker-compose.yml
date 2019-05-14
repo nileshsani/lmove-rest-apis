@@ -1,0 +1,36 @@
+version: "3"
+services:
+  server:
+    image: webservices-image:latest
+    hostname: webservices
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "0.9"
+          memory: 512M
+      restart_policy:
+        condition: on-failure
+    ports:
+      - "8080:8080"
+    networks:
+      - webnet
+    depends_on:
+      - db
+  db:
+    image: db-image:latest
+    hostname: db
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "0.9"
+          memory: 512M
+      restart_policy:
+        condition: on-failure
+    ports:
+      - "3306:3306"
+    networks:
+      - webnet
+networks:
+  webnet:

@@ -1,0 +1,21 @@
+FROM centos:7
+MAINTAINER nileshsani@gmail.com
+LABEL vendor="Nilesh Sadarangani"
+
+#update yum installer update
+RUN yum -y update --setopt=tsflasgs=nodocs && \
+    yum --version
+
+#install nodejs, npm and pm2
+RUN curl -sL https://rpm.nodesource.com/setup_8.x | bash - && \
+    yum -y --skip-broken install nodejs && \
+    yum -y --skip-broken install npm \
+RUN node --version
+
+WORKDIR /app
+COPY . /app
+RUN npm install
+
+# run npm and nginx
+EXPOSE 8080:8080
+CMD npm run-script build && npm start

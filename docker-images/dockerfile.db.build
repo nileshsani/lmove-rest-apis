@@ -1,0 +1,12 @@
+FROM mysql:8
+MAINTAINER nileshsani@gmail.com
+LABEL vendor="Nilesh Sadarangani"
+
+## Database Name
+ENV MYSQL_DATABASE orders
+ENV MYSQL_ALLOW_EMPTY_PASSWORD 1
+
+COPY ./db-schema/ /docker-entrypoint-initdb.d/
+EXPOSE 3306
+
+CMD ["mysqld"]

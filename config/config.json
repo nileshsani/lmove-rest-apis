@@ -1,0 +1,6 @@
+{
+  "dbHost": "db",
+  "user": "appuser",
+  "password": "hakunamatata",
+  "database": "lmove_db"
+}
