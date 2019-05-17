@@ -1,5 +1,5 @@
 import * as express from 'express';
-import {wsRoutes} from "./routes/wsRoutes";
+import {wsRoutes} from "./route/wsRoutes";
 
 class App {
 
@@ -8,6 +8,7 @@ class App {
 
     constructor() {
         this.app = express();
+        this.app.use(express.json());
         this.wsRoutes.routes(this.app);
     }
 }

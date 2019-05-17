@@ -17,7 +17,9 @@
     ],
     "lib": [
       "es2017",
-      "dom"
+      "dom",
+      "es5",
+      "es6"
     ]
   },
   "include": [

@@ -1,0 +1,17 @@
+{
+   "type": "mysql",
+   "host": "db",
+   "port": 3306,
+   "username": "appuser",
+   "password": "hakunamatata",
+   "database": "lmove_db",
+   "synchronize": true,
+   "logging": false,
+   "insecureAuth": true,
+   "entities": [
+      "webservices/dist/entity/*.js"
+   ],
+   "cli": {
+      "entitiesDir": "webservices/app/entity"
+   }
+}
